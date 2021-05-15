@@ -11,7 +11,8 @@ export const makeRequest = (uri, data = null, method = 'GET') => {
       const json = await res.json()
 
       if (res.status !== 200) {
-        return reject( json.err || `${res.status} ${res.statusText}`)
+        alert(`ERROR ${json.msg}`)
+        return reject(json.msg)
       }
 
       resolve(json) 
