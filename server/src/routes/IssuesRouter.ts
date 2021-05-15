@@ -9,6 +9,7 @@ import {getAllIssues, getIssueById, createIssue} from '../issueTracker/controlle
 * @description           GET all issues
 */
 router.get('/issues', async (req, res) => {
+  // TODO - remove redundant code and create more common solution for handling success/error responses
   res.json({
     success: true,
     data: getAllIssues()
@@ -95,12 +96,12 @@ router.put('/issues/:issueId', async (req, res) => {
       })
     }
 
-    // Modify status
+    // TODO - Antipattern - modification of the issue parameters should take place in the controller!!!
     issue.status = newStatus;
   }
 
   // Modify the rest of the parameters, if they are sent
-  // TODO - Modification of the issue parameters should take place in the controller!!!
+  // TODO - Antipattern - modification of the issue parameters should take place in the controller!!!
   if (title) {
     issue.title = title;
   }

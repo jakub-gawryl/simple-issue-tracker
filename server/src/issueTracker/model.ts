@@ -1,12 +1,14 @@
 import {v4 as uuidv4} from 'uuid';
 import {Issue, EIssueStatus} from './types'
 
+
+// TODO - make more persistent solution (save data to DB/file etc. to keep it between server sessions)
 export default class IssuesModel {
 
   protected _issues: Issue[] = [];
 
   constructor () {
-    // TODO Temporary add issues - make more persistent solution
+    // TODO  Temporary add issues - remove this
     this._issues.push(
       {
         id: uuidv4(),
