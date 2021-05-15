@@ -4,6 +4,8 @@ import IssuesRouter from './routes/IssuesRouter'
 const server = express()
 const PORT = 3100
 
+// Use body parser
+server.use(express.json())
 
 server.use('/', IssuesRouter)
 

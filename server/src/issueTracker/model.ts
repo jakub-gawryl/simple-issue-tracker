@@ -6,7 +6,7 @@ export default class IssuesModel {
 
   protected _issues: Issue[] = [];
 
-  constructor (){
+  constructor () {
     // TODO Temporary add issues - make more persistent solution
     this._issues.push(
       {
@@ -30,8 +30,23 @@ export default class IssuesModel {
     )
   }
 
+  /**
+   * Returns all issues
+   */
   get issues() {
     return this._issues;
+  }
+
+  /**
+   * Add new issue
+   * 
+   * @param {Issue} newIssue  Issue to save
+   * @returns {Issue}
+   */
+  public addIssue(newIssue: Issue): Issue {
+    this._issues.push(newIssue)
+
+    return newIssue;
   }
 
 }
