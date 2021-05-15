@@ -1,11 +1,15 @@
 import express from 'express'
 import IssuesRouter from './routes/IssuesRouter'
+import cors from 'cors'
 
 const server = express()
 const PORT = 3100
 
 // Use body parser
 server.use(express.json())
+
+// CORS
+server.use(cors())
 
 server.use('/', IssuesRouter)
 
