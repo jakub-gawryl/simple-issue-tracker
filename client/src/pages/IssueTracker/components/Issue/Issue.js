@@ -18,13 +18,13 @@ const Issue = (params) => {
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Description>{description}</Card.Description>
-        {status == 'open' && (
+        {status === 'open' && (
            <div className='control-buttons'>
             <Button fluid color='yellow' onClick={() => onIssueChangeStatus(id, 'pending')}>Set as pending</Button>
             <Button fluid color='green' onClick={() => onIssueChangeStatus(id, 'closed')}>Set as closed</Button>
           </div>
         )}
-        {status == 'pending' && (
+        {status === 'pending' && (
           <div className='control-buttons'>
             <Button fluid color='green'  onClick={() => onIssueChangeStatus(id, 'closed')}>Set as closed</Button>
           </div>
