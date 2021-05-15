@@ -31,10 +31,17 @@ const Issues = () => {
     getIssues();
   }
 
+  const onIssueChangeStatus = async (issueId, status) => {
+    await makeRequest(`${ENDPOINT_URI}/issues/${issueId}`, {
+      status
+    }, 'PUT')
+    getIssues();
+  }
+
   return (
     <>
       <Header />
-      <IssuesWrapper issues={issues} />
+      <IssuesWrapper issues={issues} onIssueChangeStatus={onIssueChangeStatus} />
       <AddIssue onAddNewIssue={onAddNewIssue}/>
     </>
   )

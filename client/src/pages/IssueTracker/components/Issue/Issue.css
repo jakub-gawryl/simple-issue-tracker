@@ -1,0 +1,9 @@
+.control-buttons {
+  margin-top: 16px;
+}
+.control-buttons .button {
+  margin-bottom: 10px;
+}
+.control-buttons .button:last-child {
+  margin-bottom: 0;
+}

@@ -3,9 +3,12 @@ import {Grid, Segment} from 'semantic-ui-react'
 
 import IssueGroup from './../IssueGroup/IssueGroup'
 
-const IssuesWrapper = ({issues = []}) => {
+const IssuesWrapper = (params) => {
 
-  
+  const {
+    issues = [],
+    onIssueChangeStatus = () => {}
+  } = params;
 
   return (
     <Segment>
@@ -15,6 +18,7 @@ const IssuesWrapper = ({issues = []}) => {
             title='Opened issues:'
             color='red'
             items={issues.filter(issue => issue.status === 'open')}
+            onIssueChangeStatus={onIssueChangeStatus}
           />
         </Grid.Column>
 
@@ -23,6 +27,7 @@ const IssuesWrapper = ({issues = []}) => {
             title='Pending issues:'
             color='yellow'
             items={issues.filter(issue => issue.status === 'pending')}
+            onIssueChangeStatus={onIssueChangeStatus}
           />
         </Grid.Column>
 
