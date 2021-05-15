@@ -10,7 +10,8 @@ const Issues = () => {
 
   const [issues, setIssues] = useState([]);
 
-  useEffect(() => {
+  // Get data from server
+  const getIssues = () => {
     makeRequest(`${ENDPOINT_URI}/issues`).then(response => {
       const fetchedIssues = response.data.map(item => {
         item.header = item.title;
@@ -19,14 +20,22 @@ const Issues = () => {
 
       setIssues(fetchedIssues);
     })
-    /* */
-  }, [])
+  }
+
+  // Get data on init
+  useEffect(() => getIssues(), [])
+
+  // Add new issue
+  const onAddNewIssue = async (newIssue) => {
+    await makeRequest(`${ENDPOINT_URI}/issues`, newIssue, 'POST')
+    getIssues();
+  }
 
   return (
     <>
       <Header />
       <IssuesWrapper issues={issues} />
-      <AddIssue />
+      <AddIssue onAddNewIssue={onAddNewIssue}/>
     </>
   )
 }
