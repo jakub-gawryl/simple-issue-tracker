@@ -1,6 +1,8 @@
-import issues from './model';
+import IssueModel from './model';
 import {Issue} from './types'
 
+const model = new IssueModel();
+
 export const getAllIssues = (): Issue[] => {
-  return issues;
+  return model.issues;
 }
