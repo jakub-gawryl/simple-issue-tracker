@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Segment} from 'semantic-ui-react'
+import {Grid, Segment} from 'semantic-ui-react'
 import {ENDPOINT_URI} from './../../../../config'
 import {makeRequest} from '../../../../Helpers/Helpers'
 
@@ -18,27 +18,37 @@ const IssuesWrapper = () => {
 
       setIssues(fetchedIssues);
     })
-  })
+    /* */
+  }, [])
 
   return (
     <Segment>
-      <IssueGroup
-        title='Opened issues:'
-        color='red'
-        items={issues.filter(issue => issue.status === 'open')}
-      />
+      <Grid columns={3} divided>
+       <Grid.Column>
+          <IssueGroup
+            title='Opened issues:'
+            color='red'
+            items={issues.filter(issue => issue.status === 'open')}
+          />
+        </Grid.Column>
 
-      <IssueGroup
-        title='Pending issues:'
-        color='yellow'
-        items={issues.filter(issue => issue.status === 'pending')}
-      />
+        <Grid.Column>
+          <IssueGroup
+            title='Pending issues:'
+            color='yellow'
+            items={issues.filter(issue => issue.status === 'pending')}
+          />
+        </Grid.Column>
 
-      <IssueGroup
-        title='Closed issues:'
-        color='green'
-        items={issues.filter(issue => issue.status === 'closed')}
-      />
+        <Grid.Column>
+          <IssueGroup
+            title='Closed issues:'
+            color='green'
+            items={issues.filter(issue => issue.status === 'closed')}
+          />
+        </Grid.Column>
+      </Grid>
+
     </Segment>
   )
 }
