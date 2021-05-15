@@ -1,4 +1,3 @@
-import { ExecFileOptionsWithOtherEncoding } from 'child_process';
 import {v4 as uuidv4} from 'uuid';
 import {Issue, EIssueStatus} from './types'
 

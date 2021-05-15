@@ -86,8 +86,8 @@ router.put('/issues/:issueId', async (req, res) => {
       })
     }
 
+    // Check if status can be changed
     const statusCanBechanged = issue.status === OPEN || (issue.status === PENDING && newStatus !== OPEN) || (issue.status === CLOSED && newStatus !== OPEN && newStatus !== PENDING)
-
     if (!statusCanBechanged) {
       return res.status(400).json({
         success: false,
