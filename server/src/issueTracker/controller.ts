@@ -10,7 +10,7 @@ export const getAllIssues = (): Issue[] => {
 
 export const createIssue = (title: string, description: string, status: EIssueStatus = EIssueStatus.OPEN): Issue => {
   const newIssue: Issue = {
-    id: uuidv4,
+    id: uuidv4(),
     title,
     description,
     status
