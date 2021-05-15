@@ -1,25 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {Grid, Segment} from 'semantic-ui-react'
-import {ENDPOINT_URI} from './../../../../config'
-import {makeRequest} from '../../../../Helpers/Helpers'
 
 import IssueGroup from './../IssueGroup/IssueGroup'
 
-const IssuesWrapper = () => {
+const IssuesWrapper = ({issues = []}) => {
 
-  const [issues, setIssues] = useState([]);
-
-  useEffect(() => {
-    makeRequest(`${ENDPOINT_URI}/issues`).then(response => {
-      const fetchedIssues = response.data.map(item => {
-        item.header = item.title;
-        return item;
-      });
-
-      setIssues(fetchedIssues);
-    })
-    /* */
-  }, [])
+  
 
   return (
     <Segment>
